@@ -55,4 +55,42 @@ fi
 ```bash
 #!/bin/bash
 
+Verif_utilisateur(){
+	Name_user=$1
+	if [[ $Name-user == ""]];then
+		echo 'Utilisation: '"$0 $USER"
+	fi
+	Resultat=$(grep "$Name_user" /etc/passwd)
+	return $?
+}
+Verif_utilisateur $1
+if [[ $? -eq 0 ]];then
+	echo "utilisateur existant"
+else
+	echo "Utilisateur non existant"
+fi
 ```
+ <h2>Exexcice 5 - Factorielle</h2>
+ 
+```bash
+#!/bin/bash
+
+factorielle(){
+	Res=1
+	Ind = $1
+	while[$Ind -ne 0]
+	do
+		$Res = $Ind*Res
+		Ind = $Ind-1
+	done
+	return Res
+}
+factorielle $1
+echo $?
+```
+
+
+
+
+
+
