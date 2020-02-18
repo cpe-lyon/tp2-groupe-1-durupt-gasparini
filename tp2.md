@@ -15,8 +15,44 @@
 10.
  ```bash 
 echo '$HOME ='"$HOME"
-
 ```
 <h2>Exexcice 2 - Contrôle de mot de passe  </h2>
 
- 
+```bash
+#!/bin/bash
+PASSWORD="TEST"
+echo 'RENTRER LE MOT DE PASSE:'
+read -s PSW
+if [$PASSWORD = $PSW ] ;then
+	echo "ok"
+else
+	echo "pas ok"
+fi
+```
+**chmod u+x testpswd.sh** --> on peut exexuter ce script
+
+<h2>Exexcice 3 - Expressions rationnelles  </h2>
+
+```bash
+#!/bin/bash
+function is_number() { 
+	re='^[+-]?[0-9]+([.][0-9]+)?$' 
+if ! [[ $1 =~ $re ]] ; then 
+	return 1 
+else 
+	return 0 
+	fi 
+}
+is_number $1 
+if [ $? = 0 ] ; then
+	echo "nombre réel"
+else
+	echo "nombre non réel"
+fi
+```
+<h2>Exexcice 4 - Contrôle d’utilisateur </h2>
+
+```bash
+#!/bin/bash
+
+```
