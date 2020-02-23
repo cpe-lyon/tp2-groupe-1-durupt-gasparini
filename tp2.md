@@ -73,23 +73,50 @@ fi
  <h2>Exexcice 5 - Factorielle</h2>
  
 ```bash
-#!/bin/bash
-
-factorielle(){
-	Res=1
-	Ind = $1
-	while[$Ind -ne 0]
-	do
-		$Res = $Ind*Res
-		Ind = $Ind-1
-	done
-	return Res
-}
-factorielle $1
-echo $?
+#!/bin/sh 
+ 
+fact() { 
+        INDICE=$1 
+        if [ $INDICE -eq 0 ] 
+        then 
+                echo 1 
+        else 
+                echo $(( INDICE * `fact $(( INDICE - 1 ))` )) 
+        fi 
+} 
+ 
+echo `fact $1`
 ```
-
-
+<h2>Exexcice 6 - Le juste Prix</h2>
+```bash
+#!/bin/sh 
+ 
+Prix() { 
+	VAL=$RANDOM%1000
+        REPONSE=$1 
+        if [ $REPONSE -lt $VAL ] 
+        then 
+		echo "C'est plus!"
+                echo 1 
+        else 
+            	if [ $REPONSE -gt $VAL ] 
+		then 
+			echo "C'est moins!"
+			echo 1 
+		else
+			echo "Gagné!"
+			echo 0
+	    	fi
+        fi 
+} 
+read -p 'Votre Prix' val
+Prix $val
+while [ $? -eq 1 ]
+do
+	read -p 'Votre Prix' val
+	Prix $val
+done
+```
 
 
 
